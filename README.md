@@ -53,6 +53,7 @@ PlacementPro digitizes the campus recruitment process by replacing spreadsheets,
 
 ## 🛠️ Tech Stack
 
+<<<<<<< HEAD
 | Layer       | Technology                       |
 | ----------- | -------------------------------- |
 | Backend     | Java 17, Spring Boot 3.2         |
@@ -62,6 +63,17 @@ PlacementPro digitizes the campus recruitment process by replacing spreadsheets,
 | Frontend    | Bootstrap 5 + Vanilla JavaScript |
 | API Docs    | Swagger (OpenAPI)                |
 | Build Tool  | Maven                            |
+=======
+| Layer | Technology |
+|---------|------------|
+| Backend | Java 17, Spring Boot 3.2 |
+| Database | MySQL 8 |
+| Data Access | JDBC / JdbcTemplate |
+| Security | Spring Security + JWT |
+| Frontend | Bootstrap 5 + Vanilla JavaScript |
+| API Docs | Swagger (OpenAPI) |
+| Build Tool | Maven |
+>>>>>>> 6e84c1d8d01e51e9fa2cd668af54d1d972e2c869
 
 ---
 
@@ -155,6 +167,7 @@ Interview Rounds
 
 ### Landing Page
 
+<<<<<<< HEAD
 (Add Screenshot)
 
 ### Student Dashboard
@@ -172,6 +185,25 @@ Interview Rounds
 ### Application Management
 
 (Add Screenshot)
+=======
+<img width="1918" height="1097" alt="Screenshot 2026-06-21 213821" src="https://github.com/user-attachments/assets/93988dfe-313e-4ef1-a485-cb1f9b5236a5" />
+
+### Student Dashboard
+
+<img width="1918" height="1102" alt="Screenshot 2026-06-21 213904" src="https://github.com/user-attachments/assets/4b62e079-ddd0-4cfc-9271-8bc04617f84b" />
+
+### Job Matching
+
+![Uploading Screenshot 2026-06-21 214113.png…](
+
+### Admin Dashboard
+
+![Uploading Screenshot 2026-06-21 214217.png…]()
+
+### Application Management
+
+![Uploading Screenshot 2026-06-21 214241.png…]()
+>>>>>>> 6e84c1d8d01e51e9fa2cd668af54d1d972e2c869
 
 ---
 
