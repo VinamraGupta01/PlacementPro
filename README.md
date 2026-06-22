@@ -1,57 +1,53 @@
-<div align="center">
+# 🎓 PlacementPro – Smart Placement & Internship Management System
 
-# 🎓 PlacementPro
+> A full-stack platform that helps students discover eligible internships/jobs and enables placement cells (TPOs) to manage recruitment, applications, and analytics from a single dashboard.
 
-### Smart Placement & Internship Management System
-
-A full-stack web application that helps students discover eligible internships through intelligent matching and enables placement cells to manage the complete recruitment pipeline.
-
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.2-green)
-![MySQL](https://img.shields.io/badge/MySQL-8-blue)
-![JWT](https://img.shields.io/badge/JWT-Secured-red)
-![Swagger](https://img.shields.io/badge/API-Swagger-success)
-
-</div>
+[![Java](https://img.shields.io/badge/Java-17-orange)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen)](https://spring.io/projects/spring-boot)
+[![MySQL](https://img.shields.io/badge/MySQL-8.x-blue)](https://www.mysql.com/)
+[![JWT](https://img.shields.io/badge/JWT-Secured-red)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 ---
 
 ## 🚀 Overview
 
-PlacementPro digitizes the entire campus recruitment process by replacing spreadsheets, forms, and manual shortlisting with a centralized platform.
+PlacementPro digitizes the campus recruitment process by replacing spreadsheets, forms, and manual shortlisting with a centralized recruitment platform.
 
-### Key Capabilities
+### Key Features
 
-- 🎯 Smart eligibility validation (CGPA, branch, passing year, and skills)
-- 📊 Skill match scoring for every application
-- 🔐 Secure JWT-based authentication & authorization
-- 👨‍🎓 Student portal for applications and tracking
-- 🧑‍💼 Admin/TPO dashboard for recruitment management
-- 📈 Recruitment analytics and insights
-- 📤 CSV export for applicant shortlisting
+- 🎯 Smart Eligibility Checker
+- 📊 Skill Match Scoring
+- 🔐 JWT Authentication & Authorization
+- 👨‍🎓 Student Portal
+- 🧑‍💼 Admin / TPO Dashboard
+- 📈 Placement Analytics
+- 📤 CSV Export Support
+- 📚 Swagger API Documentation
 
 ---
 
-## ✨ Features
+## ✨ Highlights
 
 ### 👨‍🎓 Student Portal
 
-- Secure registration and login
-- Academic profile management
-- Skills and resume management
-- Browse eligible opportunities
-- View skill match percentage
-- Apply for internships and jobs
-- Track application progress
+- Secure Registration & Login
+- Profile Management
+- Skills Management
+- Resume Upload
+- Browse Eligible Jobs
+- Match Score Preview
+- Application Tracking
 
 ### 🧑‍💼 Admin / Placement Cell
 
-- Manage companies and job postings
-- Configure eligibility criteria
-- Review ranked applicants
-- Update recruitment status
-- Access placement analytics
-- Export applicant data to CSV
+- Manage Companies
+- Create Job Openings
+- Configure Eligibility Criteria
+- Review Ranked Applicants
+- Update Recruitment Status
+- Export Applicant Data
+- View Placement Analytics
 
 ---
 
@@ -59,12 +55,12 @@ PlacementPro digitizes the entire campus recruitment process by replacing spread
 
 | Layer | Technology |
 |---------|------------|
-| Backend | Java 17, Spring Boot 3 |
-| Security | Spring Security, JWT |
+| Backend | Java 17, Spring Boot 3.2 |
 | Database | MySQL 8 |
 | Data Access | JDBC / JdbcTemplate |
-| API Documentation | Swagger (OpenAPI) |
-| Frontend | Bootstrap 5, JavaScript |
+| Security | Spring Security + JWT |
+| Frontend | Bootstrap 5 + Vanilla JavaScript |
+| API Docs | Swagger (OpenAPI) |
 | Build Tool | Maven |
 
 ---
@@ -89,39 +85,40 @@ Client (Bootstrap + JavaScript)
        MySQL Database
 ```
 
-### Design Highlights
+### Engineering Highlights
 
 - Layered Architecture
 - DTO-Based API Design
 - Global Exception Handling
-- Stateless JWT Authentication
 - Role-Based Access Control
-- SQL Injection Protection
+- Stateless JWT Authentication
 - BCrypt Password Hashing
+- Parameterized SQL Queries
+- SQL Injection Protection
 
 ---
 
 ## 🧠 Smart Features
 
-### 🎯 Eligibility Engine
+### Eligibility Checker
 
 Before allowing an application, the system validates:
 
 - Minimum CGPA
-- Eligible branch
-- Passing year
-- Required skills
+- Eligible Branch
+- Passing Year
+- Required Skills
 
-Applications that fail eligibility checks are rejected at the backend level.
+Applications failing eligibility criteria are rejected at the backend level.
 
-### 📊 Skill Match Scoring
+### Skill Match Score
 
 ```text
 Match Score =
 (Matched Skills ÷ Required Skills) × 100
 ```
 
-The system calculates:
+Provides:
 
 - Match Percentage
 - Matched Skills
@@ -158,23 +155,23 @@ Interview Rounds
 
 ### Landing Page
 
-<img width="1918" height="1097" alt="Screenshot 2026-06-21 213821" src="https://github.com/user-attachments/assets/d53ceb67-c45f-4855-aaf2-a69702397df8" />
+(Add Screenshot)
 
 ### Student Dashboard
 
-<img width="1918" height="1102" alt="Screenshot 2026-06-21 213904" src="https://github.com/user-attachments/assets/19660cb6-2d6a-48a4-b826-eaa130ffea27" />
+(Add Screenshot)
 
-### Job Matching Page
+### Job Matching
 
-<img width="1918" height="1102" alt="Screenshot 2026-06-21 213949" src="https://github.com/user-attachments/assets/facaa717-5e50-419f-afa7-40b29975809e" />
+(Add Screenshot)
 
 ### Admin Dashboard
 
-<img width="1918" height="1097" alt="Screenshot 2026-06-21 214113" src="https://github.com/user-attachments/assets/9681d983-6548-47fa-9690-297202471a24" />
+(Add Screenshot)
 
 ### Application Management
 
-<img width="1917" height="1097" alt="Screenshot 2026-06-21 214241" src="https://github.com/user-attachments/assets/35c882c0-6d12-4395-a42c-253c9738bb1a" />
+(Add Screenshot)
 
 ---
 
@@ -189,7 +186,7 @@ cd PlacementPro
 
 ### Configure Database
 
-Update your database credentials in:
+Update:
 
 ```properties
 src/main/resources/application.properties
@@ -206,13 +203,13 @@ spring.datasource.password=YOUR_PASSWORD
 mvn spring-boot:run
 ```
 
-### Access Application
+### Access
 
 ```text
 Application:
 http://localhost:8080
 
-Swagger API Documentation:
+Swagger:
 http://localhost:8080/swagger-ui.html
 ```
 
@@ -220,7 +217,7 @@ http://localhost:8080/swagger-ui.html
 
 ## 📡 API Documentation
 
-Interactive Swagger documentation is available at:
+Swagger UI:
 
 ```text
 http://localhost:8080/swagger-ui.html
@@ -235,27 +232,43 @@ Includes:
 
 ---
 
-## 🌟 Engineering Highlights
+## 🚀 Deployment
 
-- JWT Authentication & Authorization
-- RESTful API Design
-- Layered Architecture
-- DTO Mapping
-- JdbcTemplate Data Access
-- OpenAPI Documentation
-- Global Error Handling
-- Production-Ready Security Practices
+### Render
+
+Build Command:
+
+```bash
+mvn clean package -DskipTests
+```
+
+Start Command:
+
+```bash
+java -jar target/*.jar
+```
+
+Required Environment Variables:
+
+```text
+SPRING_DATASOURCE_URL
+SPRING_DATASOURCE_USERNAME
+SPRING_DATASOURCE_PASSWORD
+APP_JWT_SECRET
+```
 
 ---
 
-## 🚀 Future Enhancements
+## 🌟 Why JDBC Instead of JPA?
 
-- Email Notifications
-- Resume Parsing
-- Chart-Based Analytics
-- Docker Support
-- Multi-College Architecture
-- Cloud Storage Integration
+Every SQL query is written manually using JdbcTemplate.
+
+Benefits:
+
+- Full SQL control
+- Easier query optimization
+- Better understanding of joins and indexing
+- Stronger interview discussions
 
 ---
 
@@ -263,18 +276,18 @@ Includes:
 
 ### Vinamra Gupta
 
-**Backend Developer | Java | Spring Boot | MySQL**
+Backend Developer | Java | Spring Boot | MySQL
 
-GitHub: https://github.com/VinamraGupta01
+GitHub:
+https://github.com/VinamraGupta01
 
-LinkedIn: https://linkedin.com/in/vinamra-gupta-0aa4b4375
+LinkedIn:
+https://linkedin.com/in/vinamra-gupta-0aa4b4375
 
 ---
 
-<div align="center">
+## ⭐ Support
 
-### ⭐ If you found this project interesting, consider giving it a star.
+If you found this project useful, consider giving it a star.
 
-Built with ❤️ using Java, Spring Boot, MySQL, JWT Security, and Bootstrap.
-
-</div>
+Built with ❤️ using Java, Spring Boot, MySQL, JWT, and Bootstrap.
