@@ -155,23 +155,23 @@ Interview Rounds
 
 ### Landing Page
 
-(Add Screenshot)
+<img width="1918" height="1097" alt="Screenshot 2026-06-21 213821" src="https://github.com/user-attachments/assets/93988dfe-313e-4ef1-a485-cb1f9b5236a5" />
 
 ### Student Dashboard
 
-(Add Screenshot)
+<img width="1918" height="1102" alt="Screenshot 2026-06-21 213904" src="https://github.com/user-attachments/assets/4b62e079-ddd0-4cfc-9271-8bc04617f84b" />
 
 ### Job Matching
 
-(Add Screenshot)
+![Uploading Screenshot 2026-06-21 214113.png…](
 
 ### Admin Dashboard
 
-(Add Screenshot)
+![Uploading Screenshot 2026-06-21 214217.png…]()
 
 ### Application Management
 
-(Add Screenshot)
+![Uploading Screenshot 2026-06-21 214241.png…]()
 
 ---
 
