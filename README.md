@@ -158,23 +158,23 @@ Interview Rounds
 
 ### Landing Page
 
-<img width="1918" height="1097" alt="Landing Page" src="https://github.com/user-attachments/assets/1acbc4b3-dd2f-445d-b636-55446d30b3b3" />
+<img width="1918" height="1097" alt="Screenshot 2026-06-21 213821" src="https://github.com/user-attachments/assets/d53ceb67-c45f-4855-aaf2-a69702397df8" />
 
 ### Student Dashboard
 
-<img width="1918" height="1102" alt="Student Dashboard" src="https://github.com/user-attachments/assets/baee9675-d755-48d0-8f32-079d20c2b406" />
+<img width="1918" height="1102" alt="Screenshot 2026-06-21 213904" src="https://github.com/user-attachments/assets/19660cb6-2d6a-48a4-b826-eaa130ffea27" />
 
 ### Job Matching Page
 
-<img width="1918" height="1097" alt="Job Matching Page" src="https://github.com/user-attachments/assets/07aaf857-c0fe-4729-a12a-e732bf75cae8" />
+<img width="1918" height="1102" alt="Screenshot 2026-06-21 213949" src="https://github.com/user-attachments/assets/facaa717-5e50-419f-afa7-40b29975809e" />
 
 ### Admin Dashboard
 
-<img width="1918" height="1098" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/e37e2279-942f-4a4d-b15b-0af511af8229" />
+<img width="1918" height="1097" alt="Screenshot 2026-06-21 214113" src="https://github.com/user-attachments/assets/9681d983-6548-47fa-9690-297202471a24" />
 
 ### Application Management
 
-<img width="1917" height="1097" alt="Application Management" src="https://github.com/user-attachments/assets/00109d67-ef44-456a-85b6-67083df0e2e8" />
+<img width="1917" height="1097" alt="Screenshot 2026-06-21 214241" src="https://github.com/user-attachments/assets/35c882c0-6d12-4395-a42c-253c9738bb1a" />
 
 ---
 
