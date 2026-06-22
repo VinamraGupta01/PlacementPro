@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlacementPro · Smart Placement & Internship Management</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%236366f1'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Inter,Arial' font-size='34' font-weight='800' fill='white'%3EP%3C/text%3E%3C/svg%3E" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="/css/app.css" rel="stylesheet">
+</head>
+<body class="landing">
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg sticky-top glass-nav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+      <span class="brand-logo">P</span>
+      <span class="fw-bold">PlacementPro</span>
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#jobs">Jobs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#companies">Companies</a></li>
+        <li class="nav-item"><a class="nav-link" href="/swagger-ui.html" target="_blank">API Docs</a></li>
+        <li class="nav-item"><a class="btn btn-outline-primary btn-sm" href="/pages/login.html">Login</a></li>
+        <li class="nav-item"><a class="btn btn-primary btn-sm" href="/pages/register.html">Get Started</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center g-5 py-5">
+      <div class="col-lg-7">
+        <span class="pill"><i class="bi bi-stars"></i> Built for Placement Cells of 2026</span>
+        <h1 class="display-4 fw-bold mt-3 lh-sm">
+          Land your <span class="gradient-text">dream internship</span> with a smarter placement portal.
+        </h1>
+        <p class="lead text-muted mt-3">
+          PlacementPro helps students discover eligible jobs, get instant skill-match scores, and track applications —
+          while the placement cell manages companies, shortlists, and analytics from one beautiful dashboard.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="/pages/register.html" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-rocket-takeoff me-2"></i>Start as a Student
+          </a>
+          <a href="/pages/login.html" class="btn btn-outline-dark btn-lg px-4">
+            <i class="bi bi-shield-lock me-2"></i>Admin / TPO Login
+          </a>
+        </div>
+        <div class="d-flex gap-4 mt-4 small text-muted">
+          <span><i class="bi bi-check-circle-fill text-success"></i> Smart Eligibility Checker</span>
+          <span><i class="bi bi-check-circle-fill text-success"></i> Resume Match Score</span>
+          <span><i class="bi bi-check-circle-fill text-success"></i> Analytics Dashboard</span>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-card shadow-xl">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <strong>Live Match Demo</strong>
+            <span class="badge bg-primary-soft text-primary">AI-less, pure SQL</span>
+          </div>
+          <div class="match-row"><span>Java</span><span class="badge bg-success">Matched</span></div>
+          <div class="match-row"><span>Spring Boot</span><span class="badge bg-success">Matched</span></div>
+          <div class="match-row"><span>MySQL</span><span class="badge bg-success">Matched</span></div>
+          <div class="match-row"><span>REST API</span><span class="badge bg-danger-soft text-danger">Missing</span></div>
+          <hr/>
+          <div class="d-flex justify-content-between"><strong>Match Score</strong><strong class="text-primary">75%</strong></div>
+          <div class="progress mt-2" style="height:8px;">
+            <div class="progress-bar" style="width:75%;background:linear-gradient(90deg,#6366f1,#22d3ee);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<section class="py-5 stats-band">
+  <div class="container">
+    <div class="row text-center g-4" id="stats-row">
+      <div class="col-6 col-md-3"><div class="stat-card"><h2 id="stat-students">…</h2><p>Students</p></div></div>
+      <div class="col-6 col-md-3"><div class="stat-card"><h2 id="stat-companies">…</h2><p>Companies</p></div></div>
+      <div class="col-6 col-md-3"><div class="stat-card"><h2 id="stat-jobs">…</h2><p>Open Roles</p></div></div>
+      <div class="col-6 col-md-3"><div class="stat-card"><h2 id="stat-apps">…</h2><p>Applications</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="pill"><i class="bi bi-grid-1x2"></i> Features</span>
+      <h2 class="fw-bold mt-2">Everything a modern placement cell needs</h2>
+      <p class="text-muted">A polished, end-to-end experience for both students and Training & Placement Officers.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="feature-card"><div class="ico bg-indigo"><i class="bi bi-mortarboard"></i></div><h5>Student Profiles</h5><p>Build a rich profile with CGPA, skills and resume. Track every application in one place.</p></div></div>
+      <div class="col-md-4"><div class="feature-card"><div class="ico bg-cyan"><i class="bi bi-funnel"></i></div><h5>Smart Eligibility</h5><p>Auto-checks CGPA, branch, year & required skills before letting students apply.</p></div></div>
+      <div class="col-md-4"><div class="feature-card"><div class="ico bg-pink"><i class="bi bi-bullseye"></i></div><h5>Skill Match Score</h5><p>Each application gets a percentage match — perfect for shortlisting.</p></div></div>
+      <div class="col-md-4"><div class="feature-card"><div class="ico bg-amber"><i class="bi bi-buildings"></i></div><h5>Company &amp; Job Mgmt</h5><p>Admins create companies, post jobs with rich eligibility criteria.</p></div></div>
+      <div class="col-md-4"><div class="feature-card"><div class="ico bg-green"><i class="bi bi-graph-up"></i></div><h5>Live Analytics</h5><p>Applications per company, branch-wise selections and status pipeline.</p></div></div>
+      <div class="col-md-4"><div class="feature-card"><div class="ico bg-violet"><i class="bi bi-file-earmark-arrow-down"></i></div><h5>CSV Export</h5><p>Download applicant lists with one click for offline review.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOBS -->
+<section id="jobs" class="py-5 bg-light-soft">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap">
+      <div>
+        <span class="pill"><i class="bi bi-briefcase"></i> Live Postings</span>
+        <h2 class="fw-bold mt-2 mb-0">Latest opportunities</h2>
+      </div>
+      <a href="/pages/jobs.html" class="btn btn-outline-primary">View all <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="row g-4" id="jobs-row"></div>
+  </div>
+</section>
+
+<!-- COMPANIES -->
+<section id="companies" class="py-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="pill"><i class="bi bi-building"></i> Partner Companies</span>
+      <h2 class="fw-bold mt-2">Trusted by industry leaders</h2>
+    </div>
+    <div class="row g-3" id="companies-row"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5">
+  <div class="container">
+    <div class="cta-card p-5 text-center">
+      <h2 class="text-white fw-bold mb-3">Ready to ace your placements?</h2>
+      <p class="text-white-50 lead mb-4">Create your free profile in under 60 seconds.</p>
+      <a href="/pages/register.html" class="btn btn-light btn-lg px-5">Create my profile</a>
+    </div>
+  </div>
+</section>
+
+<footer class="py-4 text-center text-muted small">
+  © <span id="year"></span> PlacementPro · Built with Spring Boot + MySQL · <a href="/swagger-ui.html">API Docs</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/landing.js"></script>
+</body>
+</html>

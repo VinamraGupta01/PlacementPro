@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dashboard · PlacementPro</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="/css/app.css" rel="stylesheet">
+</head>
+<body>
+<script src="/js/api.js"></script>
+<script src="/js/shell.js"></script>
+<script>
+(async ()=>{
+  const auth = API.requireAuth('STUDENT'); if(!auth) return;
+  renderShell('dashboard');
+  setTitle('Welcome, '+ (auth.name||'') + ' 👋', 'Your placement journey starts here.');
+
+  const [me, apps, eligible] = await Promise.all([
+    API.get('/api/students/'+auth.userId),
+    API.get('/api/students/'+auth.userId+'/applications'),
+    API.get('/api/jobs/eligible/'+auth.userId)
+  ]);
+
+  const profile  = me.data;
+  const appsArr  = apps.data;
+  const elig     = eligible.data;
+
+  const counts = appsArr.reduce((m,a)=>{ m[a.status]=(m[a.status]||0)+1; return m; },{});
+
+  const skillsHtml = (profile.skills||[]).length
+    ? profile.skills.map(s=>`<span class="skill-tag">${escapeHtml(s)}</span>`).join('')
+    : `<span class="text-muted small">No skills yet — <a href="/pages/profile.html">add some</a> to improve match score.</span>`;
+
+  setBody(`
+    <div class="row g-3">
+      <div class="col-md-3"><div class="kpi"><div class="lbl">Eligible Jobs</div><div class="val">${elig.length}</div></div></div>
+      <div class="col-md-3"><div class="kpi"><div class="lbl">Applied</div><div class="val">${counts.APPLIED||0}</div></div></div>
+      <div class="col-md-3"><div class="kpi"><div class="lbl">Shortlisted</div><div class="val">${counts.SHORTLISTED||0}</div></div></div>
+      <div class="col-md-3"><div class="kpi"><div class="lbl">Selected</div><div class="val text-success">${counts.SELECTED||0}</div></div></div>
+    </div>
+
+    <div class="row g-4 mt-1">
+      <div class="col-lg-7">
+        <div class="card-section">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0">🎯 Top eligible opportunities</h6>
+            <a href="/pages/jobs.html" class="small">View all</a>
+          </div>
+          ${elig.length === 0 ? '<p class="text-muted small mb-0">No eligible jobs right now. Update your profile and skills to unlock more.</p>'
+          : elig.slice(0,4).map(j=>`
+            <div class="job-card mb-3">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h6 class="mb-1">${escapeHtml(j.title)}</h6>
+                  <div class="meta"><i class="bi bi-building"></i> ${escapeHtml(j.companyName)} · <i class="bi bi-geo-alt"></i> ${escapeHtml(j.location||'-')}</div>
+                  <div class="mt-1">${(j.requiredSkills||[]).slice(0,4).map(s=>`<span class="skill-tag">${escapeHtml(s)}</span>`).join('')}</div>
+                </div>
+                <div class="text-end">
+                  <span class="badge bg-primary-soft text-primary">${escapeHtml(j.jobType||'')}</span>
+                  <div class="small text-muted mt-2">Deadline: ${fmtDate(j.deadline)}</div>
+                  <a href="/pages/jobs.html" class="btn btn-sm btn-primary mt-2">View</a>
+                </div>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card-section mb-3">
+          <h6 class="fw-bold mb-2">My profile</h6>
+          <div class="small text-muted mb-2"><b>${escapeHtml(profile.name)}</b> · ${escapeHtml(profile.email)}</div>
+          <div class="small">Branch: <b>${escapeHtml(profile.branch||'-')}</b></div>
+          <div class="small">CGPA: <b>${profile.cgpa ?? '-'}</b> · Year: <b>${profile.passingYear ?? '-'}</b></div>
+          <div class="small mt-2">Resume:
+            ${profile.resumeUrl ? `<a href="${profile.resumeUrl}" target="_blank">View</a>` : '<span class="text-muted">not uploaded</span>'}
+          </div>
+          <hr/>
+          <div class="small fw-semibold mb-1">Skills</div>
+          <div>${skillsHtml}</div>
+          <a href="/pages/profile.html" class="btn btn-outline-primary btn-sm mt-3">Edit profile</a>
+        </div>
+        <div class="card-section">
+          <h6 class="fw-bold mb-2">Recent applications</h6>
+          ${appsArr.length===0 ? '<p class="text-muted small mb-0">No applications yet.</p>' :
+            `<table class="table table-sm align-middle"><tbody>
+              ${appsArr.slice(0,5).map(a=>`<tr>
+                <td><div class="fw-semibold">${escapeHtml(a.jobTitle)}</div><div class="small text-muted">${escapeHtml(a.companyName)}</div></td>
+                <td class="text-end"><span class="status-pill s-${escapeHtml(a.status)}">${escapeHtml(a.status)}</span></td></tr>`).join('')}
+            </tbody></table>`}
+          <a href="/pages/applications.html" class="btn btn-outline-primary btn-sm">All applications</a>
+        </div>
+      </div>
+    </div>
+  `);
+})().catch(e=>{ console.error(e); toast(e.message,'error'); });
+</script>
+</body>
+</html>

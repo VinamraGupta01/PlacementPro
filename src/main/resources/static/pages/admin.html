@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Admin Dashboard · PlacementPro</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="/css/app.css" rel="stylesheet">
+</head>
+<body>
+<script src="/js/api.js"></script>
+<script src="/js/shell.js"></script>
+<script>
+(async ()=>{
+  const auth = API.requireAuth('ADMIN'); if(!auth) return;
+  renderShell('admin');
+  setTitle('Placement Dashboard', 'Real-time analytics across all companies & students.');
+
+  const d = (await API.get('/api/admin/dashboard')).data;
+  const byStatus = d.countsByStatus || {};
+  const perCompany = d.applicationsPerCompany || [];
+  const byBranch = d.selectionsByBranch || [];
+
+  setBody(`
+    <div class="row g-3">
+      <div class="col-md-3"><div class="kpi"><div class="lbl">Students</div><div class="val">${d.totalStudents}</div></div></div>
+      <div class="col-md-3"><div class="kpi"><div class="lbl">Companies</div><div class="val">${d.totalCompanies}</div></div></div>
+      <div class="col-md-3"><div class="kpi"><div class="lbl">Open Jobs</div><div class="val">${d.totalJobs}</div></div></div>
+      <div class="col-md-3"><div class="kpi"><div class="lbl">Applications</div><div class="val">${d.totalApplications}</div></div></div>
+    </div>
+
+    <div class="row g-4 mt-1">
+      <div class="col-lg-5">
+        <div class="card-section">
+          <h6 class="fw-bold">Application Pipeline</h6>
+          ${['APPLIED','SHORTLISTED','INTERVIEW','SELECTED','REJECTED'].map(s=>{
+              const n = byStatus[s]||0;
+              const max = Math.max(1, ...Object.values(byStatus));
+              const pct = Math.round((n/max)*100);
+              return `<div class="mt-3 small">
+                <div class="d-flex justify-content-between"><span class="status-pill s-${s}">${s}</span><b>${n}</b></div>
+                <div class="progress mt-1" style="height:6px;"><div class="progress-bar" style="width:${pct}%;background:linear-gradient(90deg,#6366f1,#22d3ee);"></div></div>
+              </div>`;
+          }).join('')}
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-section h-100">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="fw-bold mb-0">Applications per Company</h6>
+            <a class="btn btn-sm btn-outline-primary" href="/api/admin/export/applications">Export CSV</a>
+          </div>
+          ${perCompany.length===0 ? '<p class="text-muted small mt-3 mb-0">No data yet.</p>' :
+            `<table class="table table-sm mt-3"><thead><tr><th>Company</th><th class="text-end">Applications</th></tr></thead>
+              <tbody>${perCompany.map(r=>`<tr><td>${escapeHtml(r.company||'')}</td><td class="text-end">${r.applications}</td></tr>`).join('')}</tbody></table>`}
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card-section">
+          <h6 class="fw-bold mb-3">Branch-wise selections</h6>
+          ${byBranch.length===0 ? '<p class="text-muted small mb-0">No selections yet.</p>' :
+            `<div class="row g-2">${byBranch.map(r=>`
+              <div class="col-md-3"><div class="kpi"><div class="lbl">${escapeHtml(r.branch||'-')}</div><div class="val">${r.selected}</div></div></div>`).join('')}</div>`}
+        </div>
+      </div>
+    </div>
+  `);
+})().catch(e=>{ console.error(e); toast(e.message,'error'); });
+</script>
+</body>
+</html>

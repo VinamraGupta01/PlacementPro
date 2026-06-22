@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Login · PlacementPro</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="/css/app.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="auth-wrap">
+  <div class="auth-art">
+    <div class="inner">
+      <a href="/" class="text-white text-decoration-none d-inline-flex align-items-center gap-2 mb-4">
+        <span class="brand-logo">P</span><span class="fw-bold fs-5">PlacementPro</span>
+      </a>
+      <h2 class="fw-bold">Welcome back!</h2>
+      <p class="text-white-50">Log in to apply for internships, track applications, and view your skill match.</p>
+      <ul class="list-unstyled mt-4 small">
+        <li class="mb-2"><i class="bi bi-check2-circle me-2 text-success"></i> Smart eligibility checker</li>
+        <li class="mb-2"><i class="bi bi-check2-circle me-2 text-success"></i> Real-time application tracking</li>
+        <li class="mb-2"><i class="bi bi-check2-circle me-2 text-success"></i> Resume upload &amp; skill profile</li>
+      </ul>
+      <div class="mt-4 p-3 rounded" style="background:rgba(255,255,255,.08);">
+        <small class="text-white-50">Demo logins</small>
+        <div class="small mt-1">👨‍🎓 Student: <b>aarav@student.edu / student123</b></div>
+        <div class="small">🧑‍💼 Admin: <b>admin@college.edu / admin123</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="auth-form">
+    <div class="panel">
+      <h3 class="fw-bold">Login</h3>
+      <p class="text-muted">Use your registered email and password.</p>
+      <div id="err" class="alert alert-danger alert-soft d-none"></div>
+      <form id="loginForm">
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" required value="aarav@student.edu">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" required value="student123">
+        </div>
+        <button class="btn btn-primary w-100 py-2">Login <i class="bi bi-box-arrow-in-right ms-1"></i></button>
+      </form>
+      <p class="text-center mt-3 small">No account? <a href="/pages/register.html">Register as student</a></p>
+      <p class="text-center small"><a href="/" class="text-muted">← Back to home</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const body = Object.fromEntries(fd);
+  const err = document.getElementById('err'); err.classList.add('d-none');
+  try{
+    const res = await API.post('/api/auth/login', body);
+    API.setAuth(res.data);
+    window.location.href = res.data.role === 'ADMIN' ? '/pages/admin.html' : '/pages/dashboard.html';
+  }catch(ex){
+    err.classList.remove('d-none'); err.innerText = ex.message;
+  }
+});
+</script>
+</body>
+</html>

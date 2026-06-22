@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Register · PlacementPro</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="/css/app.css" rel="stylesheet">
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-art">
+    <div class="inner">
+      <a href="/" class="text-white text-decoration-none d-inline-flex align-items-center gap-2 mb-4">
+        <span class="brand-logo">P</span><span class="fw-bold fs-5">PlacementPro</span>
+      </a>
+      <h2 class="fw-bold">Kickstart your career.</h2>
+      <p class="text-white-50">Create a student profile and apply to internships in under a minute.</p>
+    </div>
+  </div>
+  <div class="auth-form">
+    <div class="panel">
+      <h3 class="fw-bold">Create your account</h3>
+      <div id="err" class="alert alert-danger alert-soft d-none"></div>
+      <form id="regForm">
+        <div class="row g-3">
+          <div class="col-12"><label class="form-label">Full Name</label><input class="form-control" name="name" required></div>
+          <div class="col-md-6"><label class="form-label">Email</label><input type="email" class="form-control" name="email" required></div>
+          <div class="col-md-6"><label class="form-label">Password</label><input type="password" class="form-control" name="password" minlength="6" required></div>
+          <div class="col-md-6"><label class="form-label">Branch</label>
+            <select class="form-select" name="branch">
+              <option>CSE</option><option>IT</option><option>ECE</option><option>EEE</option><option>MECH</option><option>CIVIL</option>
+            </select>
+          </div>
+          <div class="col-md-3"><label class="form-label">CGPA</label><input type="number" step="0.01" min="0" max="10" class="form-control" name="cgpa"></div>
+          <div class="col-md-3"><label class="form-label">Passing Year</label><input type="number" class="form-control" name="passingYear" value="2026"></div>
+          <div class="col-md-6"><label class="form-label">Phone</label><input class="form-control" name="phone"></div>
+        </div>
+        <button class="btn btn-primary w-100 mt-4 py-2">Create account <i class="bi bi-arrow-right ms-1"></i></button>
+      </form>
+      <p class="text-center mt-3 small">Already have an account? <a href="/pages/login.html">Login</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script>
+document.getElementById('regForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const body = Object.fromEntries(fd);
+  body.cgpa = body.cgpa ? parseFloat(body.cgpa) : 0;
+  body.passingYear = body.passingYear ? parseInt(body.passingYear) : null;
+  const err = document.getElementById('err'); err.classList.add('d-none');
+  try{
+    const res = await API.post('/api/auth/register', body);
+    API.setAuth(res.data);
+    window.location.href = '/pages/dashboard.html';
+  }catch(ex){
+    err.classList.remove('d-none'); err.innerText = ex.message;
+  }
+});
+</script>
+</body>
+</html>
