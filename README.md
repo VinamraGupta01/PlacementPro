@@ -51,6 +51,16 @@ PlacementPro digitizes the campus recruitment process by replacing spreadsheets,
 
 ---
 
+## 🌐 Live Demo
+
+🚀 Live Application:
+https://placementpro-podx.onrender.com
+
+📖 API Documentation:
+https://placementpro-podx.onrender.com/swagger-ui.html
+
+---
+
 ## 🛠️ Tech Stack
 
 <<<<<<< HEAD
