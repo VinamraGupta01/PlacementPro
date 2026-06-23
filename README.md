@@ -177,43 +177,23 @@ Interview Rounds
 
 ### Landing Page
 
-<<<<<<< HEAD
-(Add Screenshot)
+<img width="1918" height="1097" alt="Screenshot 2026-06-21 213821" src="https://github.com/user-attachments/assets/f3445d43-2a3f-497e-b19c-432ae388826f" />
 
 ### Student Dashboard
 
-(Add Screenshot)
+<img width="1918" height="1102" alt="Screenshot 2026-06-21 213904" src="https://github.com/user-attachments/assets/616ef83c-d00b-458c-a944-2925914223ed" />
 
 ### Job Matching
 
-(Add Screenshot)
+<img width="1918" height="1102" alt="Screenshot 2026-06-21 213949" src="https://github.com/user-attachments/assets/8342885c-acdd-43d1-b80e-945e07d3cbe0" />
 
 ### Admin Dashboard
 
-(Add Screenshot)
+<img width="1918" height="1098" alt="Screenshot 2026-06-21 214217" src="https://github.com/user-attachments/assets/46e0a8f7-5e9c-4e74-a1ed-3fc2953ce3a9" />
 
 ### Application Management
 
-(Add Screenshot)
-=======
-<img width="1918" height="1097" alt="Screenshot 2026-06-21 213821" src="https://github.com/user-attachments/assets/93988dfe-313e-4ef1-a485-cb1f9b5236a5" />
-
-### Student Dashboard
-
-<img width="1918" height="1102" alt="Screenshot 2026-06-21 213904" src="https://github.com/user-attachments/assets/4b62e079-ddd0-4cfc-9271-8bc04617f84b" />
-
-### Job Matching
-
-![Uploading Screenshot 2026-06-21 214113.png…](
-
-### Admin Dashboard
-
-![Uploading Screenshot 2026-06-21 214217.png…]()
-
-### Application Management
-
-![Uploading Screenshot 2026-06-21 214241.png…]()
->>>>>>> 6e84c1d8d01e51e9fa2cd668af54d1d972e2c869
+<img width="1917" height="1097" alt="Screenshot 2026-06-21 214241" src="https://github.com/user-attachments/assets/32fe00c4-76e6-41a4-9714-a8dda7ad386b" />
 
 ---
 
